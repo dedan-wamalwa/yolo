@@ -4,5 +4,5 @@ COPY package.json .
 RUN npm install
 COPY . .
 
-EXPOSE $PORT
+EXPOSE 8080
 ENTRYPOINT ["npm","start"]

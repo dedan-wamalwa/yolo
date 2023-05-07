@@ -3,9 +3,8 @@ WORKDIR /app
 COPY package.json . 
 RUN npm install
 COPY . .
-RUN npm test
 RUN npm run build
 
-EXPOSE $PORT
+EXPOSE 8080
 ENTRYPOINT ["npm","start"]
 
