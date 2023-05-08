@@ -1,0 +1,40 @@
+version: '3.9'
+services:
+  database:
+    image: mongo:4.4
+    container_name: yolo-mongodb
+    volumes:
+      - yolo-volume:/app/db
+    ports:
+      - "27017:27017"
+    networks:
+      - yolo-network
+
+  
+  backend: 
+    image: dedanwamalwa/yolo-backend:v1.0.0
+    container_name: yolo-backend-container
+    environment:
+      - MONGODB_URI=mongodb://database/yolomy
+    ports:
+      - "5000:5000"
+    depends_on:
+      - database
+    networks:
+      - yolo-network
+
+  client: 
+    image: dedanwamalwa/yolo-client:v1.0.0
+    container_name: yolo-client-container
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - yolo-network
+
+volumes:
+  yolo-volume: 
+networks:
+  yolo-network: 
+    driver: bridge
