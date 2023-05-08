@@ -4,5 +4,6 @@ COPY package.json .
 RUN npm install
 COPY . .
 
-EXPOSE 8080
+ENV MONGODB_URI mongodb://database/yolomy
+EXPOSE 5000
 ENTRYPOINT ["npm","start"]
