@@ -1,6 +1,11 @@
 ---
 - name: clone git repository.
+
+  vars:
+    repo_url: https://github.com/dedan-wamalwa/yolo.git
+    dest_path: /home/vagrant/apps/yolo
+    
   git:
-    repo: "https://github.com/dedan-wamalwa/yolo.git"
-    dest: "/home/vagrant/apps/yolo"
+    repo: "{{ repo_url }}"
+    dest: "{{ dest_path }}"
     version: master
