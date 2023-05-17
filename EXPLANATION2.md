@@ -18,18 +18,18 @@ This document will take you through the steps to deploy this application on a re
  Here's the [roles](/roles/) folder
  This folder contains the four roles that will be executed in the playbook:
 
- ### 1. update packages
+ ### i. update packages
   This role updates the package manager index in the VM
   Here's a link to the [role](/roles/update_packages/) folder.
- ### 2. install docker
+ ### ii. install docker
   This role installs docker and docker-compose
   It has five tasks: Installing dependancies, Add docker GPG key, Add docker repository, Install docker engine and finally install docker-compose
   Here's link to the [role](/roles/install_docker/) 
- ### 3. clone github repository
+ ### iii. clone github repository
   This role clones the github repository into the VM using git.
   It makes use of the vars key where our variables that hold the url to the repository and path to clone the repo are defined
   Here's a link to the [role](/roles/clone_repo/)
- ### 4. run docker-compose
+ ### iv. run docker-compose
   This role uses docker-compose to spin up the docker containers
   We start change directory using chdir= /.. to go to the directory where the repo was clone and then run the command docker-compose up -d to spin the containers in detach mode
   Here's a link to the [role](/roles/run-docker-compose/)
