@@ -1,0 +1,6 @@
+---
+- name: clone git repository.
+  git:
+    repo: "https://github.com/dedan-wamalwa/yolo.git"
+    dest: "/home/vagrant/apps/yolo"
+    version: master
