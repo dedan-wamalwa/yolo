@@ -1,0 +1,22 @@
+---
+- name: Deploy yolo app in remote ubuntu20.04 server
+  hosts: all
+  become: yes
+  
+  pre_tasks:
+    - name: Update packages
+      include_role:
+        name: update_packages
+    
+    - name: Install docker
+      include_role:
+        name: install_docker
+
+  tasks:
+    - name: Clone the git repository
+      include_role:
+        name: clone_repo
+
+    - name: Run containers
+      include_role:
+        name: run-docker-compose
