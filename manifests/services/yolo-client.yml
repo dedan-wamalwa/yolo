@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: yolo-client-service
 spec:
+  type: LoadBalancer
   selector:
     app: yolo-client
   ports:

@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: yolo-backend-service
 spec:
+  type: LoadBalancer
   selector:
     app: yolo-backend
   ports:
