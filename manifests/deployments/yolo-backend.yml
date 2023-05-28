@@ -15,7 +15,10 @@ spec:
         app: yolo-backend
     spec:
       containers:
-        - name: client
+        - name: backend
           image: dedanwamalwa/yolo-backend:v1.0.0
           ports:
             - containerPort: 5000
+          env: 
+            - name:  MONGODB_URI
+              value: mongodb://database/yolomy
